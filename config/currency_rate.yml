@@ -1,0 +1,9 @@
+---
+:time: '2021-02-05'
+:rates:
+- :currency: USD
+  :rate: '1.1983'
+- :currency: GBP
+  :rate: '0.87538'
+- :currency: PHP
+  :rate: '57.641'
