@@ -1,0 +1,11 @@
+<h1>Check out our products!</h1>
+<div class="row product-list">
+  <% @products.each do |product| %>
+    <article class="product">
+      <h2><%= product.name %></h2>
+      <p><%= product.description %></p>
+      <strong><%= product.price %>EUR</strong>
+      <%= link_to 'Show more', product %>
+    </article>
+  <% end %>
+</div>
