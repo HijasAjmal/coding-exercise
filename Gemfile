@@ -32,11 +32,12 @@ gem 'haml', '~> 4.0.6'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'web-console', '~> 2.0', group: :development
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
   gem 'rspec-rails', '~> 3.0'
   gem 'faker', '~> 1.4.3'
   gem 'nokogiri'
