@@ -1,7 +1,10 @@
 <article class="product">
   <h1><%= @product.name %></h1>
   <p><%= @product.description %></p>
-  <strong><%= @product.price %></strong>
+  <%= select_tag :param_name, options_for_select(
+      [['EUR', @product.price]]+@currency_rates.map{ |f| [f[:currency], f[:rate]] }),
+                 {:onchange => "fetch_currency_rate(this, #{@product.id})"} %>
+  <strong id="product_price"><%= @product.price %>EUR</strong>
   <%= link_to 'Shut up and take my money!', '#' %>
 </article>
 
