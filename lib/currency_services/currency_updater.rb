@@ -25,17 +25,14 @@ module CurrencyUpdater
   def generating_currency_details(date_rate_collections)
     currency_rates_hash = {}
     currency_details = []
-    date_rate_collections.each do |f|
-      if f["time"].to_date == (Date.today - 1)
-        currency_rates_hash[:time] = f["time"]
-        f["Cube"].each do |currency|
-          currency_details << 
-              {
-                :currency => currency["currency"], 
-                :rate => currency["rate"]
-              } if CURRENCY_TYPES.include?currency["currency"].to_s
-        end
-      end
+    currency_rates = date_rate_collections.sort_by{|f| f[:time]}.first
+    currency_rates_hash[:time] = currency_rates["time"]
+    currency_rates["Cube"].each do |currency|
+      currency_details <<
+          {
+              :currency => currency["currency"],
+              :rate => currency["rate"]
+          } if CURRENCY_TYPES.include?currency["currency"].to_s
     end
     currency_rates_hash[:rates] = currency_details
     currency_rates_hash
